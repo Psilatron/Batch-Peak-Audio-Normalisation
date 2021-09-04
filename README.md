@@ -14,6 +14,7 @@ After entering desired normalisation value, use the popup window to choose the l
 Wav files will be automatically detected as mono or stereo. 
 
 ## Requirements and info
+- Python 3
 - Files do not need to be the same sample rate.
 - Only mono and stereo supported. Multi channel .wav files >2 channels can exist amongst other mono and stereo files in input director, however these will be ignored.
 - A log file detailing information about the normalisation process will be written in the OUTPUT directory.
