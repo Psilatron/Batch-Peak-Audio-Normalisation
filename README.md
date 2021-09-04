@@ -15,6 +15,6 @@ Wav files will be automatically detected as mono or stereo.
 
 ## Requirements and info
 - Files do not need to be the same sample rate.
-- Only mono and Stereo supported. Multi channel .wav files can exist amongst other mono and stereo files in input director, however these will be ignored.
+- Only mono and stereo supported. Multi channel .wav files can exist amongst other mono and stereo files in input director, however these will be ignored.
 - A log file detailing information about the normalisation process will be written in the OUTPUT directory.
 - If silent tracks are detected a warning will be written to the log.
