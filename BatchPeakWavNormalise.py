@@ -1,7 +1,6 @@
 
 import numpy as np
 import soundfile as sf
-
 import time, os, sys, tkinter, tkinter.filedialog
 
 #--------------------------------
@@ -170,19 +169,19 @@ for x in range(0,np.size(file_list)): #Step through file names. Read Stereo .wav
     if ChCount == 1:
         [Wav, SampleRate,SilentCheck]=MonoNorm(file_list[x],PkDb)
     elif ChCount == 2:
-        [Wav, SampleRate,SilentCheck]=StereoNorm(file_list[x],PkDb)            
+        [Wav, SampleRate,SilentCheck]=StereoNorm(file_list[x],PkDb)      
     elif ChCount>2:
         f_counter=f_counter-1
         f.write("ERROR: "+file_list[x]+" not normalised! Only Mono and Stereo files supported.\n")
         
     
-    filenameNorm=os.path.join('OUTPUT', str(x+1).zfill(3)+'.NORM_'+file_list[x]) 
-    filenameShort=str(x+1).zfill(3)+'.NORM_'+file_list[x]
+    filenameNorm=os.path.join('OUTPUT', str(f_counter).zfill(3)+'.NORM_'+file_list[x]) 
+    filenameShort=str(f_counter).zfill(3)+'.NORM_'+file_list[x]
     
     if ChCount<=2:
         sf.write(filenameNorm,Wav,SampleRate)
     
-    if SilentCheck==0:
+    if SilentCheck==0 and ChCount<=2:
         f.write("File OK: "+filenameShort+"\n")
     elif SilentCheck==1:
         f.write("WARNING: "+filenameShort+" is silent. Check original file.\n")
